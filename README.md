@@ -1,46 +1,25 @@
-# Gestión de Cosechas
+# Proyecto de Gestión de Cosechas
 
-Este proyecto es una aplicación Java de escritorio para gestionar registros de cosechas en una base de datos. Permite realizar operaciones básicas de CRUD (Crear, Leer, Actualizar y Eliminar) sobre los datos de las cosechas.
+Este proyecto es una aplicación de escritorio en Java que permite gestionar registros de cosechas de frutas. Su principal objetivo es facilitar la administración de datos relacionados con las cosechas, incluyendo la fecha de la cosecha, el tipo de fruta y la cantidad cosechada en kilogramos.
 
-## Funcionalidades
+## Funcionalidades Principales
 
-- Agregar nuevas cosechas.
-- Listar todas las cosechas existentes.
-- Actualizar registros de cosechas.
-- Eliminar cosechas.
+- **Agregar Cosechas**: Permite al usuario introducir nuevos registros de cosechas en la base de datos.
+- **Listar Cosechas**: Muestra todos los registros de cosechas existentes.
+- **Actualizar Cosechas**: Permite modificar los detalles de una cosecha ya registrada.
+- **Eliminar Cosechas**: Ofrece la opción de eliminar registros de cosechas.
+
+## Estructura del Proyecto
+
+- **Modelo**: Define la clase `Cosecha` que representa la estructura de datos de una cosecha.
+- **DAO**: Implementa la clase `CosechaDAO` que maneja la conexión y las operaciones de base de datos para las cosechas.
+- **Interfaz de Usuario**: Utiliza `CosechaView` para crear una interfaz gráfica intuitiva donde los usuarios pueden interactuar con la aplicación.
+- **Conexión a Base de Datos**: `ConexionBD` establece la conexión a la base de datos MySQL.
 
 ## Requisitos
 
-- Java Development Kit (JDK) 8 o superior.
+- JDK 8 o superior.
 - MySQL Server.
-- Conector MySQL JDBC para Java.
+- Conector MySQL JDBC.
 
-## Configuración del Proyecto
-
-1. **Base de Datos**
-   - Asegúrate de tener MySQL instalado y en funcionamiento.
-   - Crea una base de datos llamada `cosecha` utilizando el siguiente script SQL:
-
-     ```sql
-     CREATE DATABASE cosecha;
-
-     USE cosecha;
-
-     CREATE TABLE cosechas (
-         id INT AUTO_INCREMENT PRIMARY KEY,
-         fecha_cosecha DATE NOT NULL,
-         tipo_fruta VARCHAR(100) NOT NULL,
-         cantidad_kg DOUBLE NOT NULL
-     );
-     ```
-
-2. **Conexión a la Base de Datos**
-   - Modifica la clase `ConexionBD` en `com.ejemplo.util` para ajustar los parámetros de conexión según tu configuración de MySQL (usuario y contraseña).
-
-   ```java
-   public static Connection getConexion() {
-       String url = "jdbc:mysql://localhost:3306/cosecha"; // URL de conexión
-       String usuario = "root"; // Cambia esto según tu usuario
-       String contraseña = "negros*"; // Cambia esto según tu contraseña
-       // Resto del código...
-   }
+Este proyecto es útil para quienes desean llevar un control de las cosechas de frutas, optimizando la gestión y el acceso a la información relevante.
